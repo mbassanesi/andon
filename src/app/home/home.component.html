@@ -1,0 +1,24 @@
+
+<div class="container color-dark">
+  <div class="col">
+    <p>Informar a cadeia de ajuda</p>
+  </div>
+  <div class="col">
+    <p>Itens pendentes ({{ n_itens }})</p>  <!-- coloca o valor de numero de itens (valor da variavel) quando tem {{}}-->
+  </div>
+</div>
+
+<div class="container color-light">
+  <div class="col">
+    <p class="sm">Escreva o que aconteceu</p>
+
+    <form>
+      <input type="text" class="txt" name="item" placeholder="preencha neste campo" [(ngModel)]="d_problema"> <!--  usar [(ngModel)]="variavel" e importar formsmodule no appmodule.ts para usar 2 ways binding. -->
+      <input type="submit" class="btn" value="{{ texto_botao }}" (click)="adicionarItem()">  <!--  (valor da variavel) quando tem {{}}-->
+    </form>
+  </div>
+  <div class="col">
+    <p class="life-container" *ngFor="let problema of problemas; let i = index" (click)="excluirItem(i)">
+      {{ problema }}
+  </div>
+</div>
